@@ -9,6 +9,7 @@
 	<button id="rock">Rock</button>
 	<button id="paper">Paper</button>
 	<button id="scissors">Scissors</button>
+	<div id="results"></div>
 	<script>
 		function getComputerChoice() {
 			let rps = Math.floor(Math.random() * 3) + 1;
@@ -22,35 +23,37 @@
 			}
 		}
 
+		const result = document.querySelector('#results');
+
 		function playRound(playerSelection, computerSelection) {
 			let player = playerSelection.toLowerCase();
 			let comp = computerSelection.toLowerCase();
 			if (player === 'rock' && comp === 'rock') {
-				console.log("You Tie! Rock ties Rock");
+				result.textContent = "You Tie! Rock ties Rock";
 				return 0;
 			} else if (player === 'rock' && comp === 'paper') {
-				console.log("You Lose! Paper beats Rock");
+				result.textContent = "You Lose! Paper beats Rock";
 				return -1;
 			} else if (player === 'rock' && comp === 'scissors') {
-				console.log("You Win! Rock beats Scissors");
+				result.textContent = "You Win! Rock beats Scissors";
 				return 1;
 			} else if (player === 'paper' && comp === 'rock') {
-				console.log("You Win! Paper beats Rock");
+				result.textContent = "You Win! Paper beats Rock";
 				return 1;
 			} else if (player === 'paper' && comp === 'paper') {
-				console.log("You Tie! Paper ties Paper");
+				result.textContent = "You Tie! Paper ties Paper";
 				return 0;
 			} else if (player === 'paper' && comp === 'scissors') {
-				console.log("You Lose! Scissors beats Paper");
+				result.textContent = "You Lose! Scissors beats Paper";
 				return -1;
 			} else if (player === 'scissors' && comp === 'rock') {
-				console.log("You Lose! Rock beats Scissors");
+				result.textContent = "You Lose! Rock beats Scissors!";
 				return -1;
 			} else if (player === 'scissors' && comp === 'paper') {
-				console.log("You Win! Scissors beats Paper");
+				result.textContent = "You Win! Scissors beats Paper";
 				return 1;
 			} else if (player === 'scissors' && comp === 'scissors') {
-				console.log("You Tie! Scissors ties Scissors");
+				result.textContent = "You Tie! Scissors ties Scissors";
 				return 0;
 			}
 		}
